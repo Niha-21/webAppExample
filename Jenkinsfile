@@ -1,4 +1,5 @@
 node{
+	def app
 	stage('Git-Checkout'){
 	
 		echo "Checking out from Git Repo";
@@ -11,7 +12,7 @@ node{
 		bat "${mvnCMD} clean package"	
 	}
 	stage('Build Docker Image'){
-		bat "docker build nihak/webapp:${env.BUILD_NUMBER}"
+		app = docker.build("nihak/webapp:${env.BUILD_NUMBER}")
 	}
         
 }
