@@ -11,7 +11,7 @@ node{
 		bat "${mvnCMD} clean package"	
 	}
 	stage('Build Docker Image'){
-		bat "docker build -t nihak/webapp:${env.BUILD_NUMBER}"
+		bat "docker build nihak/webapp:${env.BUILD_NUMBER}"
 	}
         
 }
